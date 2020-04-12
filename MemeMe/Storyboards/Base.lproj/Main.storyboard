@@ -81,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="5Ki-XA-Alf" id="pxR-Bu-YLg"/>
+                        <outlet property="cameraButton" destination="NJp-K5-IoF" id="VB6-c9-lqb"/>
                         <outlet property="imagePickerView" destination="Diu-ma-Duw" id="BpC-w9-mT6"/>
                         <outlet property="topTextField" destination="VgW-fL-6bJ" id="c3M-5u-lRF"/>
                     </connections>
