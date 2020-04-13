@@ -15,31 +15,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tw2-ox-eej" userLabel="Top Toolbar">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIX-CS-R6F">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="action" id="dA5-CR-Ql9"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0d1-fu-KUk"/>
-                                    <barButtonItem style="plain" systemItem="cancel" id="Jus-Nh-28U"/>
+                                    <navigationItem title="New Meme" id="C92-Oa-fia">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Sup-yJ-Juk">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="mtr-PM-jHf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Vi7-B1-RQ1">
+                                            <connections>
+                                                <action selector="resetMemeEditor:" destination="BYZ-38-t0r" id="NfQ-XI-Ijy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
-                            </toolbar>
+                            </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Diu-ma-Duw">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgW-fL-6bJ" userLabel="Top Text Field">
-                                <rect key="frame" x="20" y="118" width="374" height="30.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgW-fL-6bJ" userLabel="Top Text Field">
+                                <rect key="frame" x="20" y="118" width="374" height="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ki-XA-Alf" userLabel="Bottom Text Field">
-                                <rect key="frame" x="20" y="752.5" width="374" height="30.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ki-XA-Alf" userLabel="Bottom Text Field">
+                                <rect key="frame" x="20" y="738" width="374" height="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAK-8w-8nb" userLabel="Bottom Toolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAK-8w-8nb">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ukp-wq-2pI"/>
@@ -62,19 +71,19 @@
                         <constraints>
                             <constraint firstItem="VgW-fL-6bJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CCk-6q-nb4"/>
                             <constraint firstItem="5Ki-XA-Alf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DGS-nR-zhS"/>
-                            <constraint firstItem="tw2-ox-eej" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FoY-5K-YzW"/>
                             <constraint firstItem="JAK-8w-8nb" firstAttribute="top" secondItem="Diu-ma-Duw" secondAttribute="bottom" id="GL8-YX-BqX"/>
-                            <constraint firstItem="Diu-ma-Duw" firstAttribute="top" secondItem="tw2-ox-eej" secondAttribute="bottom" id="JdU-6f-Aka"/>
+                            <constraint firstItem="JIX-CS-R6F" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="GwK-d4-Bjp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VgW-fL-6bJ" secondAttribute="trailing" constant="20" id="KAd-uN-1Kf"/>
-                            <constraint firstAttribute="trailing" secondItem="tw2-ox-eej" secondAttribute="trailing" id="RGf-I4-G2f"/>
                             <constraint firstItem="JAK-8w-8nb" firstAttribute="top" secondItem="5Ki-XA-Alf" secondAttribute="bottom" constant="30" id="Swf-9e-iqS"/>
+                            <constraint firstItem="Diu-ma-Duw" firstAttribute="top" secondItem="JIX-CS-R6F" secondAttribute="bottom" id="WyB-Ru-Nkd"/>
                             <constraint firstItem="JAK-8w-8nb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y1W-BK-X0g"/>
-                            <constraint firstItem="VgW-fL-6bJ" firstAttribute="top" secondItem="tw2-ox-eej" secondAttribute="bottom" constant="30" id="dQ9-SH-hT1"/>
-                            <constraint firstItem="tw2-ox-eej" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m4I-K7-Cwv"/>
+                            <constraint firstItem="VgW-fL-6bJ" firstAttribute="top" secondItem="JIX-CS-R6F" secondAttribute="bottom" constant="30" id="fjZ-kE-tPA"/>
                             <constraint firstItem="Diu-ma-Duw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mu2-eP-aAR"/>
                             <constraint firstItem="JAK-8w-8nb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="p77-56-dib"/>
                             <constraint firstItem="Diu-ma-Duw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rX1-xB-Cs4"/>
+                            <constraint firstItem="JIX-CS-R6F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rgl-OF-yAA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Ki-XA-Alf" secondAttribute="trailing" constant="20" id="s3h-c5-O6Z"/>
+                            <constraint firstItem="JIX-CS-R6F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xhY-0c-2VE"/>
                             <constraint firstAttribute="trailing" secondItem="JAK-8w-8nb" secondAttribute="trailing" id="xzW-zy-0HJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -82,7 +91,10 @@
                     <connections>
                         <outlet property="bottomTextField" destination="5Ki-XA-Alf" id="pxR-Bu-YLg"/>
                         <outlet property="cameraButton" destination="NJp-K5-IoF" id="VB6-c9-lqb"/>
-                        <outlet property="imagePickerView" destination="Diu-ma-Duw" id="BpC-w9-mT6"/>
+                        <outlet property="imageView" destination="Diu-ma-Duw" id="BpC-w9-mT6"/>
+                        <outlet property="navigationBar" destination="JIX-CS-R6F" id="Fdn-I3-whx"/>
+                        <outlet property="shareButton" destination="Sup-yJ-Juk" id="Fgg-pr-gUF"/>
+                        <outlet property="toolbar" destination="JAK-8w-8nb" id="UCh-K1-Z5M"/>
                         <outlet property="topTextField" destination="VgW-fL-6bJ" id="c3M-5u-lRF"/>
                     </connections>
                 </viewController>
