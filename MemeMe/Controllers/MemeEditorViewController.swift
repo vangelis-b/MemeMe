@@ -33,11 +33,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     ]
     
     // MARK: Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -66,6 +61,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         unsubscribeFromKeyboardNotifications()
     }
 
@@ -75,9 +71,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let memedImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {
-            [weak self] (activityType, completed, returnedItems, activityError) in
+            (activityType, completed, returnedItems, activityError) in
             if completed {
-                self?.save(memedImage)
+                self.save(memedImage)
             }
             
             activityViewController.dismiss(animated: true, completion: nil)
@@ -155,7 +151,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     private func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
     }
     
     private func unsubscribeFromKeyboardNotifications() {
