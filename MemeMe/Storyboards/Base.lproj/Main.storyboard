@@ -19,14 +19,14 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="New Meme" id="C92-Oa-fia">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Sup-yJ-Juk">
-                                            <connections>
-                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="mtr-PM-jHf"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Vi7-B1-RQ1">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Vi7-B1-RQ1">
                                             <connections>
                                                 <action selector="resetMemeEditor:" destination="BYZ-38-t0r" id="NfQ-XI-Ijy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Sup-yJ-Juk">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="mtr-PM-jHf"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
