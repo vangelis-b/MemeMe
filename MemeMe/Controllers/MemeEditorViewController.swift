@@ -25,38 +25,24 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     private let topTextDefaultValue = "TOP"
     private let bottomTextDefaultValue = "BOTTOM"
-    private let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 36)!,
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.strokeWidth: -2
-    ]
     
     // MARK: Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTextField(textField: topTextField, text: topTextDefaultValue)
+        setupTextField(textField: bottomTextField, text: bottomTextDefaultValue)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Subscribe to keyboard notifications, to raise the view when necessary.
+        // Subscribe to keyboard notifications in order to raise the view when necessary.
         subscribeToKeyboardNotifications()
         
-        // Disable the share button when there's no image to share.
         shareButton.isEnabled = imageView.image != nil
-        
-        // Disable the camera button if the camera is not available.
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        
-        // Apply custom text styling to the top and bottom text.
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        
-        // Align top and bottom text to the center.
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
-        
-        // Set delegates
-        topTextField.delegate = self
-        bottomTextField.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,7 +108,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     
-    private func pickAnImage(_ sourceType: UIImagePickerController.SourceType) -> Void {
+    func setupTextField(textField: UITextField, text: String) {
+        textField.defaultTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 36)!,
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.strokeWidth: -2
+        ]
+        textField.textAlignment = .center
+        textField.text = text
+        textField.delegate = self
+    }
+    
+    private func pickAnImage(_ sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = sourceType
