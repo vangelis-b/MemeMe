@@ -6,7 +6,6 @@
 //  Copyright © 2020 Vangelis Bouzoukas. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Meme {

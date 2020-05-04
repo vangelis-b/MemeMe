@@ -100,7 +100,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func save(_ memedImage: UIImage) {
         // Create the meme.
-        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate.
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
         dismiss(animated: true, completion: nil)
     }
     
@@ -157,7 +162,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // MARK: - Text Field Delegate Methods
+    // MARK: - Text Field Delegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == topTextDefaultValue || textField.text == bottomTextDefaultValue {
@@ -171,7 +176,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true;
     }
     
-    // MARK: - Image Picker Delegate Methods
+    // MARK: - Image Picker Delegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
